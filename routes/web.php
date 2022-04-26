@@ -13,9 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // Creo le rotte necessarie utilizzando il metodo 'resource'
 Route::resource('comics','ComicController');
