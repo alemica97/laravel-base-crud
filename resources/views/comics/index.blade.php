@@ -42,6 +42,13 @@
 
         </table>
     </div>
+    <div class="container py-5">
+        <form>
+            <a href="{{ route('comics.create') }}">
+                <input type="button" value="Create a new Comic!">
+            </a>
+        </form>
+    </div>
 </main>
 
 @endsection
