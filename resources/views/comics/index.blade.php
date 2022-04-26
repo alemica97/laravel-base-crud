@@ -22,12 +22,13 @@
                 <th scope="col">series</th>
                 <th scope="col">sale date</th>
                 <th scope="col">type</th>
+                <th scope="col">link</th>
             </tr>
             </thead>
 
             <tbody>
             @foreach ($comics as $comic)
-            <tr>
+            <tr">
                 <td>{{ $comic->id }}</td>
                 <td>{{ $comic->title }}</td>
                 <td>{{ $comic->price }}</td>
