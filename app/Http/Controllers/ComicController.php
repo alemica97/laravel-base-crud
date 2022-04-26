@@ -45,9 +45,10 @@ class ComicController extends Controller
      * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function show(Comic $comic)
+    public function show($id) //passo un'istanza del Model Comic
     {
-        return
+        $comic = Comic::find($id);
+        return view('comics.show', compact('comic'));
     }
 
     /**

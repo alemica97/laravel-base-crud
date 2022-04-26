@@ -4,6 +4,12 @@
 
 @section('content')
 
+<header>
+    <div class="container py-3">
+        <h4><a href="{{ route('comics.index') }}">Table - Home</a></h4>
+    </div>
+</header>
+
 <main>
     <div class="container">
         <table class="table-striped">
@@ -28,6 +34,7 @@
                 <td>{{ $comic->series }}</td>
                 <td>{{ $comic->sale_date }}</td>
                 <td>{{ $comic->type }}</td>
+                <td><a href="{{ route('comics.show', $comic->id) }}">visualizza</a></td>
             </tr>
             @endforeach
             </tbody>
