@@ -11,7 +11,7 @@
 </header>
 
 <main>
-    <div class="container">
+    <div class="container py-5">
         <figure>
             <img src="{{ $comic->thumb }}" alt="">
         </figure>

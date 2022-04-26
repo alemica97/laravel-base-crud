@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: lightsteelblue;
+}
+
+th,
+td {
+  padding: 5px 20px;
+}
+

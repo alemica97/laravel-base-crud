@@ -11,8 +11,10 @@
 </header>
 
 <main>
-    <div class="container">
-        <table class="table-striped">
+    <div class="container py-5">
+        <table class="caption-top table-striped table-bordered">
+
+            <caption>List of Comics</caption>
 
             <thead>
             <tr>
@@ -29,7 +31,7 @@
             <tbody>
             @foreach ($comics as $comic)
             <tr">
-                <td>{{ $comic->id }}</td>
+                <th scope="row">{{ $comic->id }}</th>
                 <td>{{ $comic->title }}</td>
                 <td>{{ $comic->price }}</td>
                 <td>{{ $comic->series }}</td>
@@ -42,10 +44,10 @@
 
         </table>
     </div>
-    <div class="container py-5">
+    <div class="container py-2">
         <form>
             <a href="{{ route('comics.create') }}">
-                <input type="button" value="Create a new Comic!">
+                <input type="button" class="btn btn-primary" value="Create a new Comic!">
             </a>
         </form>
     </div>
