@@ -26,6 +26,7 @@
                 <th scope="col">type</th>
                 <th scope="col">link</th>
                 <th scope="col">modifica</th>
+                <th scope="col">elimina</th>
             </tr>
             </thead>
 
@@ -38,8 +39,17 @@
                 <td>{{ $comic->series }}</td>
                 <td>{{ $comic->sale_date }}</td>
                 <td>{{ $comic->type }}</td>
-                <td><a href="{{ route('comics.show', $comic->id) }}">visualizza</a></td>
+                <td><a href="{{ route('comics.show', $comic->id) }}">Visualizza</a></td>
                 <td><a href="{{ route('comics.edit', $comic->id) }}">Modifica</a></td>
+                <td>
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">
+                            Elimina
+                        </button>
+                    </form>
+                </td>
             </tr>
             @endforeach
             </tbody>
