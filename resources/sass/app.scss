@@ -8,7 +8,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 td, th{
-    padding: 8px 25px;
+    padding: 5px 30px;
 }
 
 img{
@@ -17,4 +17,8 @@ img{
 
 .thumb{
     max-width: 250px;
+}
+
+header{
+    background-color: lightsteelblue;
 }
