@@ -25,6 +25,7 @@
                 <th scope="col">sale date</th>
                 <th scope="col">type</th>
                 <th scope="col">link</th>
+                <th scope="col">modifica</th>
             </tr>
             </thead>
 
@@ -38,6 +39,7 @@
                 <td>{{ $comic->sale_date }}</td>
                 <td>{{ $comic->type }}</td>
                 <td><a href="{{ route('comics.show', $comic->id) }}">visualizza</a></td>
+                <td><a href="{{ route('comics.edit', $comic->id) }}">Modifica</a></td>
             </tr>
             @endforeach
             </tbody>
