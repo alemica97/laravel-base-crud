@@ -12,7 +12,7 @@
 
 <main>
     <div class="container py-5">
-        <figure>
+        <figure class="thumb">
             <img src="{{ $comic->thumb }}" alt="">
         </figure>
         <h1>{{ $comic->title }}</h1>

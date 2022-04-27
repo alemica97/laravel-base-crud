@@ -1,13 +1,20 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+td, th{
+    padding: 8px 25px;
 }
 
-header{
-    background-color: lightsteelblue;
+img{
+    max-width: 100%;
 }
 
-th, td{
-    padding: 5px 20px;
+.thumb{
+    max-width: 250px;
 }

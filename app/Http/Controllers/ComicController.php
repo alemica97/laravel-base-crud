@@ -34,9 +34,25 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //allo store arriveranno i dati che vengono inseriti nel form della pagina create
     public function store(Request $request)
     {
-        //
+        $data = $request->all(); //$data è l'array associativo contenente i dati immessi nel form
+        //TODO qui andrà la validazione dei dati
+        $comic = new Comic();
+
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->thumb = $data['thumb'];
+        $comic->price = $data['price'];
+        $comic->series = $data['series'];
+        $comic->sale_date = $data['sale_date'];
+        $comic->type = $data['type'];
+        $comic->artists = explode(",", $data['artists']);
+        $comic->writers = explode(",", $data['writers']);
+
+        $comic->save();
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

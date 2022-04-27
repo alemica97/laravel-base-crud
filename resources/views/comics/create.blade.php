@@ -11,9 +11,11 @@
 </header>
 
 <main>
+    
     <div class="container">
         <h1>Create a new Comic</h1>
         <form action="{{ route('comics.store') }}" method="POST">
+            @csrf
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
               <input type="text" class="form-control" name="title" id="title" placeholder="Insert Comic's title">
@@ -38,7 +40,15 @@
                 <label for="sale_date" class="form-label">Sale Date</label>
                 <input type="text" class="form-control" name="sale_date" id="sale_date" placeholder="Insert Comic's Sale Date (YYYY-MM-DD)">
             </div>
-            <select class="form-select" aria-label="Default select example">
+            <div class="mb-3">
+                <label for="artists" class="form-label">Artists</label>
+                <input type="text" class="form-control" name="artists" id="artists" placeholder="Insert Comic's artists with ' , '">
+            </div>
+            <div class="mb-3">
+                <label for="writers" class="form-label">writers</label>
+                <input type="text" class="form-control" name="writers" id="writers" placeholder="Insert Comic's writers with ' , '">
+            </div>
+            <select class="form-select" aria-label="Default select example" name="type" id="type">
                 <option selected>choose Comic's type</option>
                 <option value="comic book">Comic Book</option>
                 <option value="graphic novel">Graphic Novel</option>
