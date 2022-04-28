@@ -115,7 +115,8 @@ class ComicController extends Controller
                 Rule::in(['comic book','graphic novel']),
                 ],
             'artists' => 'required|min:4',
-            'writers' => 'required|min:4' 
+            'writers' => 'required|min:4',
+            'created_at' => 'nullable|date'
         ]);
 
         $data = $request->all();
@@ -136,4 +137,5 @@ class ComicController extends Controller
         $comic->delete();
         return redirect()->route('comics.index');
     }
+    
 }
