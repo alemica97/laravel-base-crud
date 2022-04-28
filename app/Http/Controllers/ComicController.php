@@ -44,7 +44,7 @@ class ComicController extends Controller
             'title' => 'required|max:100',
             'description' => 'nullable',
             'thumb' => 'required',
-            'price' => 'required',
+            'price' => 'required|regex:/^[$]([0-9]+[.][0-9]+)/',
             'series' => 'required|max:50',
             'sale_date' => 'required|date',
             'type' => [
