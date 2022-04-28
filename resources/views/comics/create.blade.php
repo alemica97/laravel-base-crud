@@ -18,35 +18,35 @@
             @csrf
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
-              <input type="text" class="form-control" name="title" id="title" placeholder="Insert Comic's title">
+              <input type="text" class="form-control" value="{{ old('title') }}" name="title" id="title" placeholder="Insert Comic's title">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" name="description" id="description" style="height: 100px" placeholder="Insert Comic's description"></textarea>
+                <textarea class="form-control" value="{{ old('description') }}" name="description" id="description" style="height: 100px" placeholder="Insert Comic's description"></textarea>
             </div>
             <div class="mb-3">
                 <label for="thumb" class="form-label">Thumb</label>
-                <input type="text" class="form-control" name="thumb" id="thumb" placeholder="Insert Comic's thumb">
+                <input type="text" class="form-control" value="{{ old('thumb') }}" name="thumb" id="thumb" placeholder="Insert Comic's thumb">
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control" name="price" id="price" placeholder="Insert Comic's price ($ xx.xx)">
+                <input type="text" class="form-control" value="{{ old('price') }}" name="price" id="price" placeholder="Insert Comic's price ($ xx.xx)">
             </div>
             <div class="mb-3">
                 <label for="series" class="form-label">Series</label>
-                <input type="text" class="form-control" name="series" id="series" placeholder="Insert Comic's series">
+                <input type="text" class="form-control" value="{{ old('series') }}" name="series" id="series" placeholder="Insert Comic's series">
             </div>
             <div class="mb-3">
                 <label for="sale_date" class="form-label">Sale Date</label>
-                <input type="text" class="form-control" name="sale_date" id="sale_date" placeholder="Insert Comic's Sale Date (YYYY-MM-DD)">
+                <input type="text" class="form-control" value="{{ old('sale_date') }}" name="sale_date" id="sale_date" placeholder="Insert Comic's Sale Date (YYYY-MM-DD)">
             </div>
             <div class="mb-3">
                 <label for="artists" class="form-label">Artists</label>
-                <input type="text" class="form-control" name="artists" id="artists" placeholder="Insert Comic's artists with ' , '">
+                <input type="text" class="form-control" value="{{ old('artists') }}" name="artists" id="artists" placeholder="Insert Comic's artists with ' , '">
             </div>
             <div class="mb-3">
                 <label for="writers" class="form-label">writers</label>
-                <input type="text" class="form-control" name="writers" id="writers" placeholder="Insert Comic's writers with ' , '">
+                <input type="text" class="form-control" value="{{ old('writers') }}" name="writers" id="writers" placeholder="Insert Comic's writers with ' , '">
             </div>
             <select class="form-select" aria-label="Default select example" name="type" id="type">
                 <option selected>choose Comic's type</option>
@@ -55,6 +55,16 @@
             </select>
 
             <button type="submit" class="btn btn-primary">Submit</button>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
           </form>
     </div>
 </main>
