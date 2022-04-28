@@ -43,8 +43,8 @@ class ComicController extends Controller
         $request->validate([
             'title' => 'required|max:100',
             'description' => 'nullable',
-            'thumb' => 'required',
-            'price' => 'required|regex:/^[$]([0-9]+[.][0-9]+)/',
+            'thumb' => 'required|url',
+            'price' => 'required|regex:/^[$]([0-9]+[.][0-9]+)/', //espressione regolare che accetta una stringa: '$xx.xx'
             'series' => 'required|max:50',
             'sale_date' => 'required|date',
             'type' => [
@@ -103,6 +103,21 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate([
+            'title' => 'required|max:100',
+            'description' => 'nullable',
+            'thumb' => 'required|url',
+            'price' => 'required|regex:/^[$]([0-9]+[.][0-9]+)/', //espressione regolare che accetta una stringa: '$xx.xx'
+            'series' => 'required|max:50',
+            'sale_date' => 'required|date',
+            'type' => [
+                'required',
+                Rule::in(['comic book','graphic novel']),
+                ],
+            'artists' => 'required|min:4',
+            'writers' => 'required|min:4' 
+        ]);
+
         $data = $request->all();
         $data['artists'] = explode(",", $data['artists']);
         $data['writers'] = explode(",", $data['writers']);
