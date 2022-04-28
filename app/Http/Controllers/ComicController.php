@@ -41,7 +41,7 @@ class ComicController extends Controller
         $data = $request->all(); //$data è l'array associativo contenente i dati immessi nel form
         //qui andrà la validazione dei dati
         $request->validate([
-            'title' => 'required|max:100',
+            'title' => 'required|min:5|max:100',
             'description' => 'nullable',
             'thumb' => 'required|url',
             'price' => 'required|regex:/^[$]([0-9]+[.][0-9]+)/', //espressione regolare che accetta una stringa: '$xx.xx'
@@ -53,6 +53,12 @@ class ComicController extends Controller
                 ],
             'artists' => 'required|min:4',
             'writers' => 'required|min:4' 
+        ], 
+        [
+            //messaggi di errore modificati 
+            'price.regex' => 'The price must be written like this: $xx.xx',
+            'thumb.url' => 'Thumb must be written like this: Https://...'
+
         ]);
 
         $comic = new Comic();
@@ -116,7 +122,12 @@ class ComicController extends Controller
                 ],
             'artists' => 'required|min:4',
             'writers' => 'required|min:4',
-            'created_at' => 'nullable|date'
+        ],
+        [
+            //messaggi di errore modificati 
+            'price.regex' => 'The price must be written like this: $xx.xx',
+            'thumb.url' => 'Thumb must be written like this: Https://...'
+
         ]);
 
         $data = $request->all();
