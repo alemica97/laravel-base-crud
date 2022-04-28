@@ -1,23 +1,17 @@
-@extends('partials.app')
+@extends('layouts.app')
 
 @section('title','Comic')
 
 @section('content')
 
-<header>
-    <div class="container py-3">
-        <h4><a href="{{ route('comics.index') }}">Table - Home</a></h4>
-    </div>
-</header>
-
 <main>
-    <div class="container py-5">
+    <div class="container show py-5">
         <figure class="thumb">
             <img src="{{ $comic->thumb }}" alt="">
         </figure>
-        <h1>{{ $comic->title }}</h1>
-        <p>{{ $comic->description }}</p>
-        <ul class="py-4">
+        <h1 class="show-title">{{ $comic->title }}</h1>
+        <p class="show-par mb-0">{{ $comic->description }}</p>
+        <ul class="py-4 px-4 mb-0">
             <li>
                 <span><strong>Series: </strong>{{ $comic->series }}</span>
             </li>
@@ -47,6 +41,13 @@
                 @endforeach
             </div>
         </div>
+    </div>
+    <div class="container py-5">
+        <form>
+            <a href="{{ route('comics.edit', $comic->id) }}">
+                <input type="button" class="btn btn-primary" value="Edit this Comic!">
+            </a>
+        </form>
     </div>
 </main>
 

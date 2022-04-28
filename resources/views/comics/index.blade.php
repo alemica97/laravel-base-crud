@@ -1,21 +1,14 @@
-@extends('partials.app')
+@extends('layouts.app')
 
 @section('title','Tabella Comics')
 
 @section('content')
 
-<header>
-    <div class="container py-3">
-        <h4><a href="{{ route('comics.index') }}">Table - Home</a></h4>
-    </div>
-</header>
-
 <main>
     <div class="container py-5">
+       
         <table class="caption-top table-striped table-bordered">
-
-            <caption>List of Comics</caption>
-
+            <caption class="mt-2">List of Comics</caption>
             <thead>
             <tr>
                 <th scope="col">id</th>
@@ -45,7 +38,7 @@
                     <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">
+                        <button class="btn btn-primary" type="submit">
                             Elimina
                         </button>
                     </form>

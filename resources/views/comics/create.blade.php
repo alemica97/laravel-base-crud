@@ -1,19 +1,13 @@
-@extends('partials.app')
+@extends('layouts.app')
 
 @section('title','Create Comic')
 
 @section('content')
 
-<header>
-    <div class="container py-3">
-        <h4><a href="{{ route('comics.index') }}">Table - Home</a></h4>
-    </div>
-</header>
-
 <main>
     
-    <div class="container">
-        <h1>Create a new Comic</h1>
+    <div class="container create py-5">
+        <h1 class="mb-3">Create a new Comic</h1>
         <form action="{{ route('comics.store') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -48,15 +42,18 @@
                 <label for="writers" class="form-label">writers</label>
                 <input type="text" class="form-control" value="{{ old('writers') }}" name="writers" id="writers" placeholder="Insert Comic's writers with ' , '">
             </div>
-            <select class="form-select" aria-label="Default select example" name="type" id="type">
-                <option selected>choose Comic's type</option>
-                <option value="comic book">Comic Book</option>
-                <option value="graphic novel">Graphic Novel</option>
-            </select>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-            @if ($errors->any())
+            <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" name="type" id="type">
+                    <option selected>choose Comic's type</option>
+                    <option value="comic book">Comic Book</option>
+                    <option value="graphic novel">Graphic Novel</option>
+                </select>
+            </div>
+            <div class="mb-3 py-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="mb-3">
+                @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -64,7 +61,9 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+                @endif
+            </div>
+            
           </form>
     </div>
 </main>
